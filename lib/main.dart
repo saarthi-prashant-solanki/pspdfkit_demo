@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-const String _documentPath = 'PDFs/Algebra.pdf';
+const String _documentPath = 'PDFs/English.pdf';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -129,17 +129,7 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
           title: Text(widget.title),
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              Text(
-                'You have pushed the button this many times:',
-              ),
-            ],
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async {
+          child: ElevatedButton(onPressed: () async {
             final extractedWritableDocument = await extractAsset(context, _documentPath, shouldOverwrite: false, prefix: 'persist');
             await Navigator.of(context).push<dynamic>(
               MaterialPageRoute<dynamic>(
@@ -168,13 +158,7 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
                 ),
               ),
             );
-          },
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        ));
-  }
-
-  Future<void> onPlatformViewCreated(int id) async {
-    view = PspdfkitWidgetController(id);
+          }, child: const Text('Pdf View'),),
+        ),);
   }
 }
