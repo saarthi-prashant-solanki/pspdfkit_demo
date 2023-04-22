@@ -56,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
               child: PspdfkitWidget(
                 documentPath: extractedDocument.path,
                 configuration: const {
+                  enableAnnotationEditing: false,
                   disableAutosave: true,
                   scrollDirection: 'vertical',
                   pageTransition: 'scrollContinuous',
@@ -73,7 +74,6 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
                   invertColors: false,
                   androidGrayScale: false,
                   startPage: 0,
-                  enableAnnotationEditing: true,
                   enableTextSelection: false,
                   androidShowBookmarksAction: false,
                   androidEnableDocumentEditor: false,
